@@ -46,7 +46,6 @@ int main()
     cout << "Enter numbers to sort - " << endl;
 
     string line;
-    vector<string> stringInput;
     vector<int> inputArray;
 
     while (getline(cin, line))
@@ -56,17 +55,24 @@ int main()
         }
 
         inputArray.push_back(stoi(line));
-        stringInput.push_back(line);
     }
 
-    // print the numbers
-    printArray(inputArray, "before");
+    cout << "User has input " << inputArray.size() << " numbers" << endl;
+    // if there are no elements, do not perform the below steps. Just leave
+    if (inputArray.size() > 0) {
+        // print the numbers
+        printArray(inputArray, "before");
 
-    // perform sort
-    sortArray(inputArray, SortOrder::descend);
+        // perform sort
+        sortArray(inputArray, SortOrder::descend);
 
-    // print the numbers
-    printArray(inputArray, "after");
+        // print the numbers
+        printArray(inputArray, "after");
+
+    }
+    else {
+        cout << "Nothing to sort" << endl;
+    }
 
     return 0;
 }
